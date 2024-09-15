@@ -1,0 +1,34 @@
+<% layout("./layouts/boilerplate")%>
+<body>
+<div class="row mt-3">
+    <div class="col-8 offset-2"><h1>edit</h1>
+    <form method="post" action="/listings/<%=newlisting._id%>?_method=put" novalidate class="needs-validation">
+        <div class="mb-3">
+            <label for="title" class="form-label">title</label>
+        <input name="listing[title]" type="text" value="<%=newlisting.title%>" class="form-control" required>
+        <div class="valid-feedback">looks good!</div>
+    </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">description</label>
+        <textarea name="listing[description]" type="text"class="form-control" required>
+            <%=newlisting.description%></textarea>
+            <div class="invalid-feedback">please enter a short description.</div>  </div>
+            <div class="mb-3"> <label for="image" class="form-label">Image Link</label>
+        <input name="listing[image]"    type="text"value="<%=newlisting.image%>"class="form-control" required></div>
+        
+            <div class="row">
+                <div class="mb-3 col-md-4">  <label for="price" class="form-label">price</label>
+                <input name="listing[price]" type="number"value="<%=newlisting.price%>"class="form-control" required>
+                <div class="invalid-feedback">please enter a valid price.</div>  </div>
+                <div class="mb-3 col-md-8 "><label for="country" class="form-label">country</label>
+            <input name="listing[country]" type="text"value="<%=newlisting.country%>"class="form-control" required>
+            <div class="invalid-feedback">please enter a valid country.</div>  </div>
+            </div>
+            <div class="mb-3"><label for="location" class="form-label">location</label>
+        <input name="listing[location]" type="text"value="<%=newlisting.location%>"class="form-control" required>
+        <div class="invalid-feedback">please enter a valid location.</div>  </div>
+        
+            <button class="btn btn-dark edit-btn mt-3">Edit</button>
+    </form></div></div>
+    
+</body>
