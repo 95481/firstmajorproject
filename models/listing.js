@@ -9,8 +9,8 @@ const listingschema =new  mongoose.Schema({
     description : String,
     image : {
         type : String,
-        default : "https://unsplash.com/photos/back-of-woman-in-white-hat-on-the-beach-w8aoJZTRnyE",
-        set :(v) => v===""?"https://unsplash.com/photos/back-of-woman-in-white-hat-on-the-beach-w8aoJZTRnyE":v,
+        default : "https://plus.unsplash.com/premium_photo-1664476330720-c295de45f928?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        set :(v) => v===""?"https://plus.unsplash.com/premium_photo-1664476330720-c295de45f928?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D":v,
     },
     price : Number,
     location : String,
@@ -20,7 +20,11 @@ const listingschema =new  mongoose.Schema({
         type: Schema.Types.ObjectId,
          ref: 'Review' 
     }
-]
+],
+owner : {
+    type : Schema.Types.ObjectId,
+    ref : 'User'
+},
 });
 listingschema.post("findOneAndDelete",async(listing)=>{
     if(listing){
